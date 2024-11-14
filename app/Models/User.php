@@ -5,10 +5,11 @@ namespace App\Models;
 use PDO;
 
 class User{
+
     private $db;
 
-    public function __construct(\PDO $db){
-        $this->$db = $db;
+    public function __construct(PDO $db){
+        $this->db = $db;
     }
 
     // :bool => typage -> maintenabilité (on sait directement de quoi il s'agit -> gain de temps)

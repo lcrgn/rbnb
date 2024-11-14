@@ -32,6 +32,8 @@ $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
 switch($path){
     case '':
+        require_once("Views/home.php");
+        break;
     case 'login':
         $authController->login();
         break;

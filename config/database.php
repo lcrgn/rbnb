@@ -14,7 +14,7 @@ class Database
             $this->pdo = new PDO(
                 "mysql:host=" . DB_SERVER .      
                     ";port=" . DB_PORT .           
-                    ";dbname=" . DB_NAME,          
+                    ";dbname=" . DB_DATABASE,          
                 DB_USERNAME,                       
                 DB_PASSWORD                        
             );
