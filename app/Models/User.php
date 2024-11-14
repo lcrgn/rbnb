@@ -32,7 +32,7 @@ class User{
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function findMyEmail(string $email):?array{
+    public function findByEmail(string $email):?array{
         $sql = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['email' => $email]);
