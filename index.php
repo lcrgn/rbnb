@@ -26,13 +26,17 @@ $database = new Database;
 $db = $database->getConnection();
 
 $userModel = new App\Models\User($db);
+$postModel = new App\Models\Post($db);
+
 $authController = new \App\Controllers\AuthController($userModel);
+$postController = new App\Controllers\PostController($postModel);
 
 $path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-switch($path){
+switch ($path) {
     case '':
-        require_once("Views/home.php");
+    case 'home':
+        $postController->index();
         break;
     case 'login':
         $authController->login();
@@ -42,5 +46,8 @@ switch($path){
         break;
     case 'logout':
         $authController->logout();
+        break;
+    case 'posts/create':
+        $postController->create();
         break;
 }

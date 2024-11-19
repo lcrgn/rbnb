@@ -6,5 +6,5 @@ define('DB_PASSWORD', '');
 define('DB_DATABASE', 'airbnb');
 define('DB_PORT', '3306');
 define('PROJECT_NAME', 'Airbnb');
-define('BASE_URL', 'http://localhost/');
-define('UPLOAD_DIR', 'upload/');
+define('BASE_URL', 'http://localhost/8080');
+define('UPLOAD_DIR', 'uploads/');

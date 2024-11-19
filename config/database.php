@@ -2,15 +2,14 @@
 
 require_once 'config.php';
 
-class Database
-{
+class Database{
     
     private $pdo;
-    public function getConnection()
-    {
+    public function getConnection(){
        
         $this->pdo = null;
-        try {
+
+        try{
             $this->pdo = new PDO(
                 "mysql:host=" . DB_SERVER .      
                     ";port=" . DB_PORT .           
@@ -20,11 +19,9 @@ class Database
             );
 
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            
+        } catch (PDOException $e){
             echo "Erreur de connexion : " . $e->getMessage();
         }
-
         return $this->pdo;
     }
 }

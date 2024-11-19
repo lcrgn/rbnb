@@ -20,12 +20,13 @@ class AuthController{
                 if($this->user->create($_POST)){
                     // flash = msg qui pop up mais qui ne reste pas 
                     $_SESSION['flash'] = "Registration successfull. Please login";
+                    // redirection vers la page login 
                     header('Location: ' . BASE_URL . 'login');
                     exit;
                 }
                 $errors[] = 'Registration failed. Please try again';
             }
-            $_SESSION['error'] = $errors;
+            $_SESSION['errors'] = $errors;
         }
         require_once'Views/auth/register.php';
     }
@@ -42,18 +43,19 @@ class AuthController{
             }
             $_SESSION['errors'] = ['Invalid email or password'];
         }
-        require_once'Views/auth/login.php';
+        require_once 'Views/auth/login.php';
     }
 
     public function logout(){
         session_destroy();
+        // une fois la personne déconnectée -> redirection vers la page d'acceuil
         header('Location: ' . BASE_URL);
         exit;
     }
 
     private function validateRegistration(array $data):array{
         $errors = [];
-
+        // initialisation des messages d'erreur en fonction des champs incomplets
         if(empty($data['username'])){
             $errors['username'] = "The username field is required";
         }
