@@ -74,7 +74,6 @@ class PostController{
         if (!empty($data['number_of_rooms']) && !is_numeric($data['number_of_rooms']) || $data['number_of_rooms'] <= 0){
             $errors[] = 'Number of rooms must be a positive number';
         }
-
         return $errors;
     }
 
